@@ -69,7 +69,7 @@ export function Hero() {
       >
         <img
           src={config.backgroundImage}
-          alt="眼镜店展示"
+          alt="佳视康眼镜店展示"
           className="w-full h-full object-cover scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />

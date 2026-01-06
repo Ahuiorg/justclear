@@ -32,7 +32,7 @@ export function LoginForm({ onSubmit, loading, error }: LoginFormProps) {
               <span className="text-2xl font-bold text-white">JC</span>
             </div>
             <h1 className="text-2xl font-semibold text-white mb-1">欢迎回来</h1>
-            <p className="text-gray-400 text-sm">登录 JustClear 管理后台</p>
+            <p className="text-gray-400 text-sm">登录 佳视康 管理后台</p>
           </div>
 
           {/* 表单 */}
@@ -123,7 +123,7 @@ export function LoginForm({ onSubmit, loading, error }: LoginFormProps) {
 
         {/* 版权 */}
         <p className="mt-6 text-center text-xs text-gray-600">
-          © 2026 JustClear 眼镜店
+          © 2026 佳视康 · justclear 眼镜店
         </p>
       </div>
     </div>

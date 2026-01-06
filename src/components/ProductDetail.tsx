@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Star, ShoppingCart, Check, Truck, Shield, RefreshCw, Loader2 } from 'lucide-react';
+import { ArrowLeft, Star, ShoppingCart, Check, Truck, Shield, RefreshCw } from 'lucide-react';
+import { LoadingContent } from './ui/loading';
 import { useProduct, useProducts } from '../hooks/useProducts';
 import { useCategory } from '../hooks/useCategories';
 
@@ -18,11 +19,8 @@ export function ProductDetail() {
 
   if (loading) {
     return (
-      <div className="min-h-screen pt-24 pb-12 flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
-          <p className="text-gray-500">加载中...</p>
-        </div>
+      <div className="min-h-screen pt-24 pb-12">
+        <LoadingContent text="正在加载商品详情..." />
       </div>
     );
   }

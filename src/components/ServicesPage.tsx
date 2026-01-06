@@ -1,4 +1,5 @@
 import { Scan, Wrench, ShieldCheck, HeartHandshake, Eye, Clock, Users, Phone } from 'lucide-react';
+import { useContactInfo } from '../hooks/useSiteConfig';
 
 const services = [
   {
@@ -79,6 +80,9 @@ const processes = [
 ];
 
 export function ServicesPage() {
+  const { config: contactInfo } = useContactInfo();
+  const phone = contactInfo?.phone?.[0] || '400-888-8888';
+
   return (
     <div className="min-h-screen pt-24 pb-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -151,7 +155,7 @@ export function ServicesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:010-8888-8888"
+              href={`tel:${phone.replace(/[^0-9]/g, '')}`}
               className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors"
             >
               <Phone className="w-5 h-5" />

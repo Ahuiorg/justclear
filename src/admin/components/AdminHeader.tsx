@@ -25,7 +25,7 @@ export function AdminHeader({ adminUser, onSignOut }: AdminHeaderProps) {
           <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
             <span className="text-white font-bold text-sm">JC</span>
           </div>
-          <span className="font-semibold text-gray-900">JustClear 管理后台</span>
+          <span className="font-semibold text-gray-900">佳视康 管理后台</span>
         </Link>
 
         {/* 右侧 */}

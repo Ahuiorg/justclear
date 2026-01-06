@@ -1,4 +1,5 @@
-import { Scan, Wrench, ShieldCheck, HeartHandshake, Eye, Glasses, Star, Award, Loader2, LucideIcon } from 'lucide-react';
+import { Scan, Wrench, ShieldCheck, HeartHandshake, Eye, Glasses, Star, Award, LucideIcon } from 'lucide-react';
+import { LoadingContent } from './ui/loading';
 import { motion } from 'framer-motion';
 import { useServices } from '../hooks/useServices';
 
@@ -20,11 +21,8 @@ export function Services() {
   if (loading) {
     return (
       <section className="py-20 sm:py-28 lg:py-32 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-[400px]">
-          <div className="flex flex-col items-center gap-4">
-            <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
-            <p className="text-gray-500">加载服务中...</p>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <LoadingContent text="正在加载服务..." />
         </div>
       </section>
     );

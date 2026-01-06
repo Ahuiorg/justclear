@@ -1,4 +1,4 @@
--- JustClear 眼镜店官网 - 管理员账户初始化脚本
+-- 佳视康 · justclear 眼镜店官网 - 管理员账户初始化脚本
 -- ⚠️ 此脚本需要在 Supabase Dashboard -> SQL Editor 中执行
 -- 执行顺序：1. init.sql -> 2. 本文件 -> 3. seed.sql
 

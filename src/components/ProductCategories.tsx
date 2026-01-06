@@ -1,4 +1,5 @@
-import { Sun, Glasses, Eye, Baby, Loader2 } from 'lucide-react';
+import { Sun, Glasses, Eye, Baby } from 'lucide-react';
+import { LoadingContent } from './ui/loading';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useCategories } from '../hooks/useCategories';
@@ -23,11 +24,8 @@ export function ProductCategories() {
   if (loading) {
     return (
       <section className="py-20 sm:py-28 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-[400px]">
-          <div className="flex flex-col items-center gap-4">
-            <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
-            <p className="text-gray-500">加载分类中...</p>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <LoadingContent text="正在加载产品分类..." />
         </div>
       </section>
     );

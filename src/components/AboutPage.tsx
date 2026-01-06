@@ -1,4 +1,5 @@
-import { Award, Users, Star, TrendingUp, Target, Heart, Lightbulb, MapPin } from 'lucide-react';
+import { Award, Users, Star, TrendingUp, Target, Heart, Lightbulb, MapPin, Phone, Clock } from 'lucide-react';
+import { useContactInfo } from '../hooks/useSiteConfig';
 
 const stats = [
   { id: 1, value: '15+', label: '年行业经验', icon: Award },
@@ -29,7 +30,7 @@ const timeline = [
   {
     year: '2009',
     title: '品牌创立',
-    description: '明视眼镜在北京成立，开设第一家门店',
+    description: '佳视康眼镜在北京成立，开设第一家门店',
   },
   {
     year: '2012',
@@ -86,6 +87,8 @@ const team = [
 ];
 
 export function AboutPage() {
+  const { config: contactInfo } = useContactInfo();
+
   return (
     <div className="min-h-screen pt-24 pb-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,7 +96,7 @@ export function AboutPage() {
         <div className="text-center mb-16">
           <h1 className="text-gray-900 mb-6">关于我们</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            明视眼镜成立于2009年，秉承"专业、品质、服务"的经营理念，
+            佳视康眼镜成立于2009年，秉承"专业、品质、服务"的经营理念，
             致力于为每一位顾客带来清晰舒适的视觉体验
           </p>
         </div>
@@ -120,8 +123,8 @@ export function AboutPage() {
             <h2 className="text-gray-900 mb-6">我们的故事</h2>
             <div className="space-y-4 text-gray-600">
               <p>
-                明视眼镜成立于2009年，是一家专注于提供高品质眼镜产品和专业视光服务的连锁眼镜店。
-                创始人张明先生拥有超过15年的验光经验，怀着为更多人带来清晰视界的理想，创立了明视眼镜。
+                佳视康眼镜成立于2009年，是一家专注于提供高品质眼镜产品和专业视光服务的连锁眼镜店。
+                创始人张明先生拥有超过15年的验光经验，怀着为更多人带来清晰视界的理想，创立了佳视康眼镜。
               </p>
               <p>
                 我们拥有专业的验光团队，所有验光师均持有国家认证资格证书，并定期参加专业培训。
@@ -227,15 +230,23 @@ export function AboutPage() {
                 <div className="flex items-start gap-4">
                   <MapPin className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                   <div>
-                    <p className="text-gray-900 mb-1">北京市朝阳区建国路88号</p>
-                    <p className="text-gray-600">现代城购物中心2层</p>
+                    <p className="text-gray-900 mb-1">{contactInfo?.address || '地址加载中...'}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <Award className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <Phone className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-gray-900 mb-1">联系电话</p>
+                    <p className="text-gray-600">
+                      {contactInfo?.phone?.join(' / ') || '电话加载中...'}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Clock className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-gray-900 mb-1">营业时间</p>
-                    <p className="text-gray-600">周一至周日 10:00 - 21:00</p>
+                    <p className="text-gray-600">{contactInfo?.hours || '营业时间加载中...'}</p>
                   </div>
                 </div>
               </div>

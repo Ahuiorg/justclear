@@ -1,4 +1,4 @@
--- JustClear 眼镜店官网 - Supabase 数据库初始化脚本
+-- 佳视康 · justclear 眼镜店官网 - Supabase 数据库初始化脚本
 -- 在 Supabase Dashboard -> SQL Editor 中执行此脚本
 
 -- ============================================

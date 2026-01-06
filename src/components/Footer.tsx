@@ -2,11 +2,11 @@ import { Glasses, Facebook, Instagram, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useContactInfo } from '../hooks/useSiteConfig';
 
-// 默认联系信息
+// 默认联系信息（数据库未加载时使用）
 const defaultContactInfo = {
-  address: '北京市朝阳区建国路88号',
-  phone: ['010-8888-8888'],
-  email: 'service@mingshi-glasses.com',
+  address: '地址加载中...',
+  phone: ['电话加载中...'],
+  email: 'service@justclear.cn',
   hours: '周一至周日 10:00 - 21:00',
 };
 
@@ -23,7 +23,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-3 sm:mb-4">
               <Glasses className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
-              <span className="text-lg sm:text-xl text-white">明视眼镜</span>
+              <span className="text-lg sm:text-xl text-white">佳视康眼镜</span>
             </Link>
             <p className="text-gray-400 text-sm sm:text-base">
               专业验光，品质镜片
@@ -94,7 +94,7 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center text-gray-400 text-xs sm:text-sm">
-          <p>&copy; 2026 明视眼镜. 版权所有.</p>
+          <p>&copy; 2026 佳视康眼镜. 版权所有.</p>
         </div>
       </div>
     </footer>

@@ -4,11 +4,11 @@ import { useAppointment } from '../hooks/useAppointment';
 import { useContactInfo } from '../hooks/useSiteConfig';
 import { APPOINTMENT_TYPES } from '../types/database';
 
-// 默认联系信息
+// 默认联系信息（数据库未加载时使用）
 const defaultContactInfo = {
-  address: '北京市朝阳区建国路88号现代城购物中心2层',
-  phone: ['010-8888-8888', '400-888-8888（客服热线）'],
-  email: 'service@mingshi-glasses.com',
+  address: '地址加载中...',
+  phone: ['电话加载中...'],
+  email: 'service@justclear.cn',
   hours: '周一至周日 10:00 - 21:00',
 };
 

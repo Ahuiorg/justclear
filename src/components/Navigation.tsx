@@ -46,7 +46,7 @@ export function Navigation() {
               <Glasses className="w-7 h-7 sm:w-8 sm:h-8 text-blue-600" />
             </motion.div>
             <span className="text-lg sm:text-xl bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              明视眼镜
+              佳视康眼镜
             </span>
           </Link>
 

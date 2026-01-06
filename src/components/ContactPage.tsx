@@ -1,7 +1,19 @@
 import { MapPin, Phone, Mail, Clock, MessageSquare, Send } from 'lucide-react';
 import { useState } from 'react';
+import { useContactInfo } from '../hooks/useSiteConfig';
+
+// 默认联系信息
+const defaultContactInfo = {
+  address: '地址加载中...',
+  phone: ['电话加载中...'],
+  email: 'service@justclear.cn',
+  hours: '周一至周日 10:00 - 21:00',
+};
 
 export function ContactPage() {
+  const { config: contactInfo } = useContactInfo();
+  const contact = contactInfo || defaultContactInfo;
+  
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -43,12 +55,13 @@ export function ContactPage() {
             </div>
             <h3 className="text-gray-900 mb-4">电话联系</h3>
             <div className="space-y-2 text-gray-600">
-              <p>门店电话：010-8888-8888</p>
-              <p>客服热线：400-888-8888</p>
-              <p className="text-sm text-gray-500">周一至周日 9:00-22:00</p>
+              {contact.phone.map((phone, index) => (
+                <p key={index}>{phone}</p>
+              ))}
+              <p className="text-sm text-gray-500">{contact.hours}</p>
             </div>
             <a
-              href="tel:010-8888-8888"
+              href={`tel:${contact.phone[0]?.replace(/[^0-9]/g, '')}`}
               className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mt-4"
             >
               立即拨打
@@ -64,12 +77,11 @@ export function ContactPage() {
             </div>
             <h3 className="text-gray-900 mb-4">邮件联系</h3>
             <div className="space-y-2 text-gray-600">
-              <p>service@mingshi-glasses.com</p>
-              <p>info@mingshi-glasses.com</p>
+              <p>{contact.email}</p>
               <p className="text-sm text-gray-500">24小时内回复</p>
             </div>
             <a
-              href="mailto:service@mingshi-glasses.com"
+              href={`mailto:${contact.email}`}
               className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mt-4"
             >
               发送邮件
@@ -85,9 +97,7 @@ export function ContactPage() {
             </div>
             <h3 className="text-gray-900 mb-4">门店地址</h3>
             <div className="space-y-2 text-gray-600">
-              <p>北京市朝阳区建国路88号</p>
-              <p>现代城购物中心2层</p>
-              <p className="text-sm text-gray-500">地铁1号线国贸站C口</p>
+              <p>{contact.address}</p>
             </div>
             <a
               href="#map"
@@ -254,10 +264,10 @@ export function ContactPage() {
                 </li>
               </ul>
               <a
-                href="tel:010-8888-8888"
+                href={`tel:${contact.phone[0]?.replace(/[^0-9]/g, '')}`}
                 className="block w-full bg-white text-blue-600 text-center py-3 rounded-lg hover:bg-gray-100 transition-colors"
               >
-                立即预约：010-8888-8888
+                立即预约：{contact.phone[0]}
               </a>
             </div>
           </div>
@@ -270,7 +280,7 @@ export function ContactPage() {
             <div className="text-center">
               <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-2" />
               <p className="text-gray-500">地图位置</p>
-              <p className="text-sm text-gray-400 mt-1">北京市朝阳区建国路88号现代城购物中心2层</p>
+              <p className="text-sm text-gray-400 mt-1">{contact.address}</p>
             </div>
           </div>
           <div className="mt-6 grid md:grid-cols-3 gap-4 text-sm text-gray-600">

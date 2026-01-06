@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Sun, Glasses, Eye, Baby, Loader2 } from 'lucide-react';
+import { Sun, Glasses, Eye, Baby } from 'lucide-react';
+import { LoadingContent } from './ui/loading';
 import { useCategories } from '../hooks/useCategories';
 
 const categoryIcons: { [key: string]: React.ComponentType<{ className?: string }> } = {
@@ -21,11 +22,8 @@ export function ProductsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen pt-24 pb-12 bg-gray-50 flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
-          <p className="text-gray-500">加载中...</p>
-        </div>
+      <div className="min-h-screen pt-24 pb-12 bg-gray-50">
+        <LoadingContent text="正在加载产品分类..." />
       </div>
     );
   }
